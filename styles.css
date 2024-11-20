@@ -1,0 +1,466 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;    
+    background-color: #f9f9f9;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #333;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    letter-spacing: 1px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.nav-links a:hover, .fa:hover {
+    color: #f1c40f;
+    transition: .3s;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.overlay-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según necesites */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 3;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+/* Sección de recetas */
+.recipes-section {
+    padding: 50px 100px;
+    background-color: #f9f9f9;
+}
+
+/* Título de la sección */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 5px;
+}
+
+/* Input de búsqueda */
+.search-bar input {
+    padding: 10px;
+    width: 280px;
+    border: 2px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #f1c40f;
+}
+
+/* Select para criterios de búsqueda */
+.search-bar select {
+    padding: 10px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar select:focus {
+    border-color: #f1c40f;
+}
+
+/* Botón de búsqueda */
+.search-bar button {
+    padding: 12.5px 20px;
+    border: none;
+    background-color: #f1c40f;
+    color: #333;
+    font-size: 16px;
+    font-weight: 550;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #e67e22;
+}
+
+/* Contenedor de recetas */
+.recipe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo de las tarjetas de recetas */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #f1c40f;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin: 0;
+    color: #333;
+}
+
+.card-subtitle {
+    font-size: 1.1em;
+    color: #777;
+    margin: 5px 0 10px;
+}
+
+.card-category {
+    font-size: 1em;
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.card-preparation-time {
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card {
+    width: 200px;
+    margin: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle,
+.card-category,
+.card-preparation-time {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    padding: 2rem;
+}
+
+
+
+.modal-content {
+    max-height: 80vh; /* Limita la altura del modal para adaptarse mejor a la pantalla */
+    overflow-y: auto; /* Permite desplazamiento vertical */
+    padding: 20px;
+    text-align: justify; /* Justifica el texto */
+}
+
+#modal-ingredients, #modal-steps {
+    white-space: pre-line; /* Respeta los saltos de línea */
+    text-align: left; /* Alinea el texto a la izquierda */
+    line-height: 1.5; /* Mejora la legibilidad */
+}
+
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content img {
+    display: block;      /* Asegura que la imagen se comporte como un bloque */
+    margin: 0 auto;      /* Centra horizontalmente */
+    max-width: 100%;     /* Ajusta la imagen al ancho del contenedor */
+    height: 300px;
+    width: 400px;
+    border-radius: 8px;  /* Opcional: Agrega bordes redondeados para estilo */
+    margin-bottom: 15px; /* Opcional: Espacio debajo de la imagen */
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal-comments {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.modal-comments .comment {
+    background-color: #f4f4f4;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* aca */
+
+.hidden {
+    display: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+
+/* Getting Started Section Styles */
+.getting-started-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+.getting-started-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.getting-started-section .getting-started-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.getting-started-section .section-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.getting-started-section .start-btn {
+    background-color: #f1c40f;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    letter-spacing: .5px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.getting-started-section .start-btn:hover {
+    background-color: #e67e22;
+}
+
+
+
+.footer-section {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons {
+    margin: 30px 0;
+}
+
+.footer-section .social-icons a{
+    color: white;
+    margin: 0 10px;
+    font-size: 27px;
+    text-decoration: none;
+}
+
+.footer-section .social-icons a:hover {
+    transition: .4s;
+    color: #f1c40f;
+}
+
+.footer-section p {
+    margin: 0;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">RecipeWeb</div>
+    <ul class="nav-links">
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Create</a></li>
+        <div id="auth-button" class="auth-button"></div>
+    </ul>
+    
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video id="hero-video" autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/2882090/2882090-uhd_2560_1440_24fps.mp4"
+                type="video/mp4">
+        </video>
+        <div class="overlay-hero"></div>
+        <div class="hero-content">
+            <h1>Welcome to RecipeWeb</h1>
+            <p>Find the best recipes for every taste!</p>
+        </div>
+    </section>
+
+<!-- Recipes Section -->
+<section class="recipes-section">
+    <h2 class="section-title">Recipes</h2>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for recipes..." />
+        <select id="search-criteria">
+            <option value="name">Name</option>
+            <option value="category">Category</option>
+            <option value="prepTime">Preparation Time</option>
+            <option value="cookTime">Cooking Time</option>
+        </select>
+        <button id="search-btn">Search</button>
+    </div>
+    <div id="recipe-container" class="recipe-container">
+        <!-- Recipe cards will be dynamically inserted here -->
+    </div>
+</section>
+
+  <!-- Modal para detalles de receta -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modal-recipe-img" alt="Recipe Image">
+            <h2 id="modal-recipe-name"></h2>
+            <h4 id="modal-recipe-author"></h4>
+            <p><strong>Categoría:</strong> <span id="modal-recipe-category"></span></p>
+            <p><strong>Tiempo de preparación:</strong> <span id="modal-prep-time"></span> mins</p>
+            <p><strong>Ingredientes:</strong> <span id="modal-ingredients"></span></p>
+            <p><strong>Descripción:</strong> <span id="modal-description"></span></p>
+            <p><strong>Tiempo de cocción:</strong> <span id="modal-cook-time"></span></p>
+            <p><strong>Pasos:</strong> <span id="modal-steps"></span></p>
+            <p><strong>Porciones:</strong> <span id="modal-servings"></span></p>
+
+            <div class="modal-buttons">
+                <button id="edit-recipe-btn">Editar Receta</button>
+                <button id="delete-recipe-btn">Eliminar Receta</button>
+            </div>
+            <div id="modal-comments" class="modal-comments"></div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    
+<!-- Getting Started Section -->
+<section class="getting-started-section">
+    <h2 class="section-title">Getting Started</h2>
+    <img src="https://media.istockphoto.com/id/1455790292/es/v%C3%ADdeo/guy-blogger-graba-video-comparte-receta-de-pasteler%C3%ADa-en-la-c%C3%A1mara-del-tel%C3%A9fono-inteligente.jpg?s=640x640&k=20&c=MWeU3fCRC2ydUSKWFyvm_8M_iLhdCuZRQfDeFsZ0z00=" alt="Cooking illustration" class="getting-started-img">
+    <p class="section-description">
+        ¿Listo para crear tu propia receta? ¡Empieza ahora mismo y comparte tus mejores creaciones culinarias!
+    </p>
+    <button class="start-btn">Get Started</button>
+</section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2024 RecipeWeb. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    
+
+
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

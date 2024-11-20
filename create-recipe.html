@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or Edit Recipe</title>
+    <link rel="stylesheet" href="create-recipe.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="page-title">Create Recipe</h1>
+        <form id="recipe-form" enctype="multipart/form-data">
+            <label for="name">Recipe Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter recipe name" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter recipe description" required></textarea>
+
+            <label for="ingredients">Ingredients (separated by commas)</label>
+            <textarea id="ingredients" name="ingredients" placeholder="Enter ingredients, separated by commas" required></textarea>
+
+            <label for="steps">Steps (separated by commas)</label>
+            <textarea id="steps" name="steps" placeholder="Enter steps, separated by commas" required></textarea>
+
+            <label for="preparationTime">Preparation Time (minutes)</label>
+            <input type="number" id="preparationTime" name="preparationTime" min="0" required>
+
+            <label for="cookingTime">Cooking Time (minutes)</label>
+            <input type="number" id="cookingTime" name="cookingTime" min="0" required>
+
+            <label for="servings">Servings</label>
+            <input type="number" id="servings" name="servings" min="1" required>
+
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" placeholder="Enter category (e.g., Dessert)" required>
+
+            <label for="image" class="file-upload">
+                Choose Image
+                <input type="file" id="image" name="image" accept="image/*">
+            </label>
+            <div id="preview-container">
+                <img id="image-preview" src="" alt="Image preview">
+            </div>
+            
+
+            <button type="submit" id="submit-button">Save Recipe</button>
+        </form>
+    </div>
+
+    <script src="create-recipe.js"></script>
+</body>
+</html>

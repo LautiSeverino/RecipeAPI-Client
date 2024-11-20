@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-section"></div>
+        <div class="form-section">
+            <h1 id="form-title">Log in</h1>
+            <form id="auth-form" action="#" method="post">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                
+                <label id="email-label" for="email" class="hidden">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" class="hidden">
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <div class="options">
+                    <div class="remember-me" id="remember-me-section">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a class="toggle-link" id="toggleForm">Register</a>
+                </div>
+                
+                <button type="submit" id="submitButton">Sign In</button>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
