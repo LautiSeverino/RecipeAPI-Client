@@ -194,24 +194,65 @@ body, html {
     color: #333;
 }
 
-.card-subtitle {
-    font-size: 1.1em;
-    color: #777;
-    margin: 5px 0 10px;
-}
-
 .card-category {
     font-size: 1em;
     color: #e67e22;
     margin-bottom: 10px;
 }
 
-.card-preparation-time {
-    font-size: 0.9em;
-    color: #555;
+
+
+.modal-buttons button {
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Botón de edición */
+#edit-recipe-btn {
+    background-color: #4caf50; /* Verde */
+    color: white;
+    display: none; /* Oculto por defecto */
+}
 
+#edit-recipe-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#edit-recipe-btn:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+/* Botón de eliminación */
+#delete-recipe-btn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    display: none; /* Oculto por defecto */
+}
+
+#delete-recipe-btn:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+}
+
+#delete-recipe-btn:active {
+    background-color: #d32f2f;
+    transform: scale(0.95);
+}
+
+/* Posicionamiento (opcional) */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Espaciado entre los botones */
+    margin-top: 20px;
+}
 
 
 .recipe-container {
@@ -252,11 +293,13 @@ body, html {
     margin-bottom: 0.5rem;
 }
 
-.card-subtitle,
-.card-category,
+
+
+
 .card-preparation-time {
-    font-size: 0.9rem;
-    color: #777;
+    color: #1ed31ce8;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .modal {
@@ -386,7 +429,7 @@ body, html {
     border-radius: 12px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    margin: 0px auto;
+    margin: 0px auto 82px;
 }
 
 .getting-started-section .section-title {

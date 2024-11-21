@@ -15,21 +15,67 @@ document.addEventListener("DOMContentLoaded", function () {
         pageTitle.textContent = "Create Recipe";
     }
 
-    document.getElementById("image").addEventListener("change", function (event) {
+    // document.getElementById("image").addEventListener("change", function (event) {
+    //     const file = event.target.files[0];
+    //     const preview = document.getElementById("image-preview");
+    
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             preview.src = e.target.result;
+    //         };
+    //         reader.readAsDataURL(file);
+    //     } else {
+    //         preview.src = "";
+    //     }
+    // });
+
+
+    document.getElementById("image").addEventListener("change", async function (event) {
         const file = event.target.files[0];
         const preview = document.getElementById("image-preview");
     
         if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                preview.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
+            const resizedImageBase64 = await resizeImage(file, 400, 300); // Redimensiona la imagen
+            preview.src = resizedImageBase64;
+            preview.style.display = "block";
         } else {
             preview.src = "";
+            preview.style.display = "none";
         }
     });
     
+    async function resizeImage(file, width, height) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            const img = new Image();
+    
+            reader.onload = function (e) {
+                img.src = e.target.result;
+    
+                img.onload = function () {
+                    const canvas = document.createElement("canvas");
+                    const ctx = canvas.getContext("2d");
+    
+                    // Establece las dimensiones del canvas
+                    canvas.width = width;
+                    canvas.height = height;
+    
+                    // Dibuja la imagen en el canvas redimensionada
+                    ctx.drawImage(img, 0, 0, width, height);
+    
+                    // Convierte el canvas a base64
+                    resolve(canvas.toDataURL("image/jpeg"));
+                };
+    
+                img.onerror = reject;
+            };
+    
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+
 
     recipeForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -67,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const url = isEditMode 
             ? `https://recipeapi.somee.com/api/Recipes/${recipeId}`
-            : "https://recipeapi.somee.com/api/Recipes";
+            : "https://recipeapi.somee.com/api/Recipes/Create";
         const method = isEditMode ? "PUT" : "POST";
     
         try {

@@ -5,7 +5,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const authButton = document.getElementById("auth-button");
 
     document.getElementById("search-btn").addEventListener("click", searchRecipes);
+    document.getElementById("create-recipe-link").addEventListener("click", function (event) {
+        event.preventDefault(); // Evita la navegación predeterminada
+
+        const jwtToken = localStorage.getItem("jwtToken");
+        if (jwtToken) {
+            try {
+                // Decodifica el token para verificar su validez
+                const payload = JSON.parse(atob(jwtToken.split(".")[1]));
+                const currentTime = Math.floor(Date.now() / 1000);
+
+                if (payload.exp && payload.exp > currentTime) {
+                    // Token válido, redirige a la página de creación de recetas
+                    window.location.href = "create-recipe.html";
+                    return;
+                }
+            } catch (error) {
+                console.error("Error decoding token:", error);
+            }
+        }
+
+        // Si no hay token o es inválido, redirige al inicio de sesión
+        window.location.href = "login.html";
+    });
+    
     updateAuthButton();
+
 
     function updateAuthButton() {
         const token = localStorage.getItem("jwtToken");
@@ -99,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <img src="${imageSrc}" alt="${recipe.name}" class="card-img">
             <div class="card-body">
                 <h2 class="card-title">${recipe.name}</h2>
-                <h4 class="card-subtitle">Por ${recipe.createdByName}</h4>
+                <h4 class="card-author">Por ${recipe.createdByName}</h4>
                 <h5 class="card-category">${recipe.category}</h5>
                 <p class="card-preparation-time">Prep Time: ${recipe.preparationTime} mins</p>
             </div>
@@ -203,7 +228,7 @@ if (editButton) {
     function deleteRecipe(recipeId) {
         const token = localStorage.getItem("jwtToken");
 
-        fetch(`http://localhost:5101/api/Recipes/${recipeId}`, {
+        fetch(`https://recipeapi.somee.com/api/Recipes/${recipeId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${token}`
