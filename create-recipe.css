@@ -1,3 +1,5 @@
+
+/* Estilos generales */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -31,6 +33,7 @@ h1 {
     color: #333;
 }
 
+/* Estilos de formulario */
 label {
     display: block;
     font-weight: bold;
@@ -51,7 +54,8 @@ input[type="file"] {
 }
 
 textarea {
-    resize: vertical;
+    resize: none; /* Evita el redimensionamiento */
+    height: 150px; /* Altura predeterminada */
 }
 
 #submit-button {
@@ -112,9 +116,109 @@ textarea {
     border-radius: 8px;
     padding: 5px;
     height: auto;
-    display: none; 
+    display: none;
     width: 200px;
     height: auto;
     margin-top: 10px;
 }
 
+/* Media Queries */
+
+/* Pantallas pequeñas (de 600px a 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #submit-button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #image-preview {
+        width: 150px;
+    }
+}
+
+/* Pantallas extra pequeñas (menos de 600px) */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #submit-button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #image-preview {
+        width: 120px;
+    }
+
+    .file-selected {
+        font-size: 12px;
+    }
+}
+
+/* Pantallas muy pequeñas (menos de 400px) */
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    #submit-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #image-preview {
+        width: 100px;
+    }
+
+    .file-selected {
+        font-size: 10px;
+    }
+}

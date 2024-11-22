@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const recipeId = new URLSearchParams(window.location.search).get("recipeId"); // Cambiar "id" por "recipeId" si corresponde
+    const recipeId = new URLSearchParams(window.location.search).get("recipeId");
     const isEditMode = !!recipeId;
     const pageTitle = document.getElementById("page-title");
     const submitButton = document.getElementById("submit-button");
@@ -8,28 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const imagePreview = document.getElementById("image-preview");
 
     if (isEditMode) {
-        pageTitle.textContent = "Edit Recipe";
-        submitButton.textContent = "Update Recipe";
+        pageTitle.textContent = "Editar Receta";
+        submitButton.textContent = "Actualizar Receta";
         loadRecipeData(recipeId);
     } else {
-        pageTitle.textContent = "Create Recipe";
+        pageTitle.textContent = "Crear Receta";
     }
-
-    // document.getElementById("image").addEventListener("change", function (event) {
-    //     const file = event.target.files[0];
-    //     const preview = document.getElementById("image-preview");
-    
-    //     if (file) {
-    //         const reader = new FileReader();
-    //         reader.onload = function (e) {
-    //             preview.src = e.target.result;
-    //         };
-    //         reader.readAsDataURL(file);
-    //     } else {
-    //         preview.src = "";
-    //     }
-    // });
-
 
     document.getElementById("image").addEventListener("change", async function (event) {
         const file = event.target.files[0];
@@ -57,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     const canvas = document.createElement("canvas");
                     const ctx = canvas.getContext("2d");
     
-                    // Establece las dimensiones del canvas
+                    
                     canvas.width = width;
                     canvas.height = height;
     
-                    // Dibuja la imagen en el canvas redimensionada
+                    
                     ctx.drawImage(img, 0, 0, width, height);
     
-                    // Convierte el canvas a base64
+                    
                     resolve(canvas.toDataURL("image/jpeg"));
                 };
     
@@ -84,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let imageBase64 = "";
     
         if (file) {
-            // Convertir nueva imagen a Base64
+            
             const reader = new FileReader();
             imageBase64 = await new Promise((resolve, reject) => {
                 reader.onload = () => resolve(reader.result.split(",")[1]);
@@ -92,11 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 reader.readAsDataURL(file);
             });
         } else if (isEditMode) {
-            // Usar la imagen actual si no se selecciona una nueva
+            
             const imagePreview = document.getElementById("image-preview");
             imageBase64 = imagePreview.src.includes("base64") 
                 ? imagePreview.src.split(",")[1] 
-                : null; // Si no hay imagen previa, enviar null
+                : null; 
         }
     
         const recipeData = {
@@ -108,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cookingTime: parseInt(document.getElementById("cookingTime").value),
             servings: parseInt(document.getElementById("servings").value),
             category: document.getElementById("category").value,
-            imageBase64: imageBase64 || null, // Enviar null si no hay imagen
+            imageBase64: imageBase64 || null, 
         };
     
         const url = isEditMode 
@@ -177,10 +161,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("servings").value = recipe.servings;
                 document.getElementById("category").value = recipe.category;
     
-                // Mostrar la imagen si existe
+                
                 if (recipe.imageBase64) {
                     const imagePreview = document.getElementById("image-preview");
-                    imagePreview.src = `data:image/jpeg;base64,${recipe.imageBase64}`; // Convertir base64 a src
+                    imagePreview.src = `data:image/jpeg;base64,${recipe.imageBase64}`;
                     imagePreview.style.display = "block";
                 }
             } else {

@@ -25,6 +25,7 @@ body, html {
 .image-section {
     flex: 1;
     background: url('https://img.freepik.com/fotos-premium/coleccion-utensilios-cocina-utenselios-muestran-fondo-amarillo_1307444-6082.jpg') no-repeat center center/cover;
+    background-size: cover;
 }
 
 .form-section {
@@ -43,8 +44,7 @@ body, html {
     color: #333;
 }
 
-label {
-    margin-top: 110px;
+ form label {
     font-weight: bold;
     color: #555;
 }
@@ -90,10 +90,80 @@ button:hover {
     font-size: 15px;
 }
 
-.toggle-link:hover{
+.toggle-link:hover {
     text-decoration: underline;
 }
 
 .hidden {
     display: none;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .image-section {
+        height: 200px;
+        background-size: cover;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+    #form-title {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button {
+        font-size: 14px;
+    }
+
+    .toggle-link {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: auto;
+        padding: 10px;
+    }
+
+    .image-section {
+        display: none; 
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    #form-title {
+        font-size: 18px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button {
+        font-size: 16px;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-link {
+        font-size: 13px;
+        margin-top: 10px;
+    }
 }

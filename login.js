@@ -9,31 +9,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let isLogin = true;
 
-    // Alternar entre Login y Register
+    
     toggleFormLink.addEventListener("click", function () {
         if (isLogin) {
-            formTitle.textContent = "Register";
+            formTitle.textContent = "Registrarse";
             emailLabel.classList.remove("hidden");
             emailInput.classList.remove("hidden");
-            submitButton.textContent = "Sing Up";
-            toggleFormLink.textContent = "Log In";
+            submitButton.textContent = "Registrarse";
+            toggleFormLink.textContent = "Iniciar Sesión";
             rememberMeSection.classList.add("hidden");
         } else {
-            formTitle.textContent = "Log In";
+            formTitle.textContent = "Iniciar Sesión";
             emailLabel.classList.add("hidden");
             emailInput.classList.add("hidden");
-            submitButton.textContent = "Sign In";
-            toggleFormLink.textContent = "Register";
+            submitButton.textContent = "Registrarse";
+            toggleFormLink.textContent = "Iniciar Sesión";
             rememberMeSection.classList.remove("hidden");
         }
         isLogin = !isLogin;
     });
 
-    // Enviar el formulario para Login o Register
+    
     authForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        // Configurar la URL y el cuerpo de la solicitud dependiendo del modo
+    
         const url = isLogin 
             ? "https://recipeapi.somee.com/api/Auth/Login" 
             : "https://recipeapi.somee.com/api/Auth/Register";
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
             
             if (response.ok) {
                 if (isLogin) {
-                    // Guardar el token en localStorage y redirigir si es necesario
+                    
                     localStorage.setItem("jwtToken", result.token);
                     alert("Login successful!");
-                    window.location.href = "index.html"; // Cambia esto a la URL de tu página principal
+                    window.location.href = "index.html";
                 } else {
                     alert("Registration successful! You can now log in.");
-                    toggleFormLink.click(); // Cambia a la vista de Login
+                    toggleFormLink.click(); 
                 }
             } else {
                 alert(result || "An error occurred. Please try again.");

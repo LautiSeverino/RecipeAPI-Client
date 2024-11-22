@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -14,9 +15,9 @@
 <nav class="navbar">
     <div class="logo">RecipeWeb</div>
     <ul class="nav-links">
-        <li><a href="#recipes-section">Recipes</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a id="create-recipe-link" href="#">Create</a></li>
+        <li><a href="#recipes-section">Recetas</a></li>
+        <li><a href="#getting-started-section">Empezar</a></li>
+        <li><a id="create-recipe-link" href="#">Crear</a></li>
 
         <div id="auth-button" class="auth-button"></div>
     </ul>
@@ -32,30 +33,30 @@
         </video>
         <div class="overlay-hero"></div>
         <div class="hero-content">
-            <h1>Welcome to RecipeWeb</h1>
-            <p>Find the best recipes for every taste!</p>
+            <h1>Bienvenido a RecipeWeb</h1>
+            <p>Encontra las mejores recetas para todos los gustos!</p>
         </div>
     </section>
 
 <!-- Recipes Section -->
 <section id="recipes-section" class="recipes-section">
-    <h2 class="section-title">Recipes</h2>
+    <h2 class="section-title">Recetas</h2>
     <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search for recipes..." />
+        <input type="text" id="search-input" placeholder="Buscar recetas..." />
         <select id="search-criteria">
-            <option value="name">Name</option>
-            <option value="category">Category</option>
-            <option value="prepTime">Preparation Time</option>
-            <option value="cookTime">Cooking Time</option>
+            <option value="name">Nombre</option>
+            <option value="category">Categoria</option>
+            <option value="prepTime">Tiempo de Preparación</option>
+            <option value="cookTime">Tiempo de Cocción</option>
         </select>
-        <button id="search-btn">Search</button>
+        <button id="search-btn">Buscar</button>
     </div>
     <div id="recipe-container" class="recipe-container">
         <!-- Recipe cards will be dynamically inserted here -->
     </div>
 </section>
 
-  <!-- Modal para detalles de receta -->
+  <!-- Modal for recipe details -->
     <div id="recipeModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
@@ -82,13 +83,13 @@
 
     
 <!-- Getting Started Section -->
-<section class="getting-started-section">
-    <h2 class="section-title">Getting Started</h2>
+<section id="getting-started-section" class="getting-started-section">
+    <h2 class="section-title">Comparti tus Recetas</h2>
     <img src="https://media.istockphoto.com/id/1455790292/es/v%C3%ADdeo/guy-blogger-graba-video-comparte-receta-de-pasteler%C3%ADa-en-la-c%C3%A1mara-del-tel%C3%A9fono-inteligente.jpg?s=640x640&k=20&c=MWeU3fCRC2ydUSKWFyvm_8M_iLhdCuZRQfDeFsZ0z00=" alt="Cooking illustration" class="getting-started-img">
     <p class="section-description">
         ¿Listo para crear tu propia receta? ¡Empieza ahora mismo y comparte tus mejores creaciones culinarias!
     </p>
-    <button class="start-btn">Get Started</button>
+    <button class="start-btn">Empezar</button>
 </section>
 
     <!-- Footer Section -->
@@ -103,13 +104,6 @@
             <p>&copy; 2024 RecipeWeb. All Rights Reserved.</p>
         </div>
     </footer>
-
-
-    
-
-
-
-    <script src="scripts.js"></script>
 </body>
 
 </html>
