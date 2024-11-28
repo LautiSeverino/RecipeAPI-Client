@@ -111,16 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     
             if (response.ok) {
-                alert(isEditMode ? "Recipe updated successfully!" : "Recipe created successfully!");
                 window.location.href = "index.html";
             } else {
                 const errorData = await response.json();
                 console.error("Error response:", errorData);
-                alert(errorData.title || "An error occurred. Please try again.");
             }
         } catch (error) {
             console.error("Request failed:", error);
-            alert("An error occurred. Please try again.");
         }
     });
     
@@ -170,11 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 const errorData = await response.json();
                 console.error("Error:", errorData);
-                alert(errorData.message || "Failed to load recipe data.");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("An error occurred while loading the recipe data.");
         }
     }
     

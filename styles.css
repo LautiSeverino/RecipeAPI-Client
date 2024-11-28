@@ -471,6 +471,150 @@ body, html {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-comments-section {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.add-comment-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#comment-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-comment-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-comment-btn:hover {
+    background-color: #0056b3;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+}
+
+.comment p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-height: 150px; /* Limita la altura si es necesario */
+    overflow: auto; /* Añade scroll si el contenido excede */
+}
+
+
+.comment-buttons {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.comment-buttons i {
+    cursor: pointer;
+    color: #888;
+}
+
+.comment-buttons i:hover {
+    color: #000;
+}
+
+
+
+
+
+/* Estilo para el modo de edición */
+.comment.edit-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment.edit-mode .edit-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.comment.edit-mode .comment-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.comment.edit-mode .comment-buttons button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment.edit-mode .save-edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.comment.edit-mode .save-edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.comment.edit-mode .cancel-edit-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.comment.edit-mode .cancel-edit-btn:hover {
+    background-color: #ddd;
+}
+
+
+
+
+
 /* Media Queries para pantallas de hasta 768px */
 @media (max-width: 768px) {
     .navbar {

@@ -61,18 +61,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (isLogin) {
                     
                     localStorage.setItem("jwtToken", result.token);
-                    alert("Login successful!");
                     window.location.href = "index.html";
                 } else {
-                    alert("Registration successful! You can now log in.");
                     toggleFormLink.click(); 
                 }
             } else {
-                alert(result || "An error occurred. Please try again.");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("An error occurred. Please try again.");
         }
     });
 });
