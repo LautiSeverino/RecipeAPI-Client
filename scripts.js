@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //const apiUrl = "https://recipeapi.somee.com/api/Recipes/GetRecipesWithComments";
-    const apiUrl = "https://localhost:7176/api/Recipes/GetRecipes";
+    //const apiUrl = "https://recipeapi.somee.com/api/Recipes/GetRecipesWithUserCreator";
     const recipeContainer = document.getElementById("recipe-container");
     const modal = document.getElementById("recipeModal");
     const authButton = document.getElementById("auth-button");
@@ -304,7 +303,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.classList.add("edit-input");
 
         // Determina el propietario del comentario y la receta
-        const userId = getUserIdFromToken(); // Asegúrate de que esta función existe y retorna el userId
+        const userId = getUserIdFromToken(); 
         const isOwner = userId === comment.userId;
         const isRecipeOwner = comment.recipeCreatedBy && userId === comment.recipeCreatedBy;
 
@@ -380,14 +379,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function loadComments(recipeId) {
         // Hacer la solicitud para obtener la receta
-        fetch(`https://localhost:7176/api/Recipes/${recipeId}`)
+        fetch(`https://recipeapi.somee.com/api/Recipes/${recipeId}`)
             .then(response => {
                 if (!response.ok) throw new Error("Error al cargar la receta");
                 return response.json();
             })
             .then(recipe => {
                 // Luego de obtener la receta, hacer la solicitud de los comentarios
-                fetch(`https://localhost:7176/api/Comments/byRecipe/${recipeId}`)
+                fetch(`https://recipeapi.somee.com/api/Comments/byRecipe/${recipeId}`)
                     .then(response => {
                         if (!response.ok) throw new Error("Error al cargar los comentarios");
                         return response.json();
@@ -412,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("https://localhost:7176/api/Comments/Create", {
+        fetch("https://recipeapi.somee.com/api/Comments/Create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -432,16 +431,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 // Si la respuesta tiene un cuerpo
-                if (response.status !== 204) { // No es 204 (sin contenido)
-                    return response.json(); // Intentamos parsear el JSON solo si tiene cuerpo
+                if (response.status !== 204) { 
+                    return response.json(); 
                 }
 
-                // Si la respuesta es 204 (sin contenido), lo consideramos como éxito
                 return null;
             })
             .then(() => {
                 loadComments(recipeId); // Recarga los comentarios
-                commentInput.value = ""; // Limpia el campo de texto
+                commentInput.value = "";
             })
             .catch(error => {
                 console.error("Error al agregar comentario:", error);
@@ -455,8 +453,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function updateComment(commentId, newContent) {
         const jwtToken = localStorage.getItem("jwtToken");
 
-        // Devuelve la Promise generada por fetch
-        return fetch(`https://localhost:7176/api/Comments/${commentId}`, {
+        return fetch(`https://recipeapi.somee.com/api/Comments/${commentId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -481,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function deleteComment(commentId, commentElement) {
         const jwtToken = localStorage.getItem("jwtToken");
 
-        fetch(`https://localhost:7176/api/Comments/${commentId}`, {
+        fetch(`https://recipeapi.somee.com/api/Comments/${commentId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${jwtToken}`
