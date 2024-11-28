@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //const apiUrl = "https://recipeapi.somee.com/api/Recipes/GetRecipesWithUserCreator";
+    const apiUrl = "https://recipeapi.somee.com/api/Recipes/GetRecipesWithUserCreator";
     const recipeContainer = document.getElementById("recipe-container");
     const modal = document.getElementById("recipeModal");
     const authButton = document.getElementById("auth-button");
