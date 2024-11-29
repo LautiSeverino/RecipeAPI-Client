@@ -582,6 +582,7 @@ body, html {
 .comment.edit-mode .comment-buttons {
     display: flex;
     justify-content: flex-end;
+    margin-top: 43px;
     gap: 10px;
 }
 
@@ -646,6 +647,51 @@ body, html {
     }
     .hero-content p {
         font-size: 1.2rem;
+    }
+
+    .modal-comments-section {
+        margin-top: 18px;
+        padding-top: 8px;
+    }
+
+    .add-comment-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #comment-input {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #add-comment-btn {
+        padding: 10px 15px;
+        font-size: 16px;
+        width: auto;
+    }
+
+    .comments-list {
+        gap: 8px;
+    }
+
+    .comment {
+        padding: 10px;
+    }
+
+    .comment-buttons {
+        gap: 5px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .comment.edit-mode .comment-buttons {
+        margin-top: 35px;
+        gap: 8px;
+    }
+
+    .comment.edit-mode .comment-buttons button {
+        padding: 6px 12px;
+        font-size: 14px;
     }
 }
 
@@ -731,4 +777,54 @@ body, html {
     .recipe-container {
         grid-template-columns: 1fr;
     }
+
+    .modal-comments-section {
+        margin-top: 15px;
+        padding-top: 5px;
+    }
+
+    .add-comment-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #comment-input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #add-comment-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .comments-list {
+        gap: 5px;
+    }
+
+    .comment {
+        padding: 8px;
+    }
+
+    .comment-buttons {
+        gap: 3px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .comment.edit-mode .comment-buttons {
+        margin-top: 30px;
+        gap: 5px;
+    }
+
+    .comment.edit-mode .comment-buttons button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
 }
+
+
+
+
+
